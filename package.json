@@ -1,0 +1,7 @@
+{
+  "name": "vei-objects",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

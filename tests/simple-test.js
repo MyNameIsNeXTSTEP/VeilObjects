@@ -1,4 +1,4 @@
-import Veil from "./veil.js";
+import Veil from "../veil.js";
 
 class Project {
   constructor(offerId) {

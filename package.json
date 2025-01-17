@@ -1,6 +1,9 @@
 {
   "name": "vei-objects",
   "type": "module",
+  "scripts": {
+    "test": "node ./tests/simple-test.js"
+  },
   "devDependencies": {
     "typescript": "^5.7.3"
   }

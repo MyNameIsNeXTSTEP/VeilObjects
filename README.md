@@ -1,13 +1,20 @@
 # VeilObjects
 The JS/TS implementation of Veil objects approach from EO oriented programming
 
+> Notice that the package is under active development currently.
+
 ## Objectives
-See original paper - https://www.yegor256.com/2020/05/19/veil-objects.html
+See original paper which this package idea is based upon - https://www.yegor256.com/2020/05/19/veil-objects.html
 
 The objective is to use the EO oriented programming so callsed: "Veil objects" approach in JS/TS
 
-## Usage
+## Contributing
 
+### Issues
+
+### Pull-requests
+
+## Usage
 The veil object wraps a target object with provided presets object and when trying to access the provided presets methods on the veil object 0 it passes them throuhg, until the veil object is pierced, meaning the use methods not listed in the provided preset object.
 
 See the example below in TypeScript:
@@ -54,6 +61,6 @@ console.log( veiledProject.author() ); // Outputs: "Alex" (preset value)
 console.log( veiledProject.description() ); // Pierces the veil and fetches from `project`
 
 // Now fetches via target object native method: `project.name()`, no longer uses preset
+// Outputs: "project.name()", wher `project` is `new Project()` from the Veil target
 console.log( veiledProject.name() );
-
 ```

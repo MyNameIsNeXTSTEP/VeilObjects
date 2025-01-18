@@ -9,7 +9,7 @@
   },
   "version": "1.0.0",
   "description": "The JS/TS implementation of Veil objects approach from EO oriented programming",
-  "main": "test.js",
+  "main": "veil.js",
   "scripts": {
     "test": "node test.js"
   },

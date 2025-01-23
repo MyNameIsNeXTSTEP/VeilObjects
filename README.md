@@ -10,7 +10,11 @@ The objective is to use the EO oriented programming so callsed: "Veil objects" a
 
 ## Contributing
 
+See all you need here: https://gadzhievislam.org/Programming/Contributing
+
 ### Issues
+
+You're welcome to submit any issues related to existing issues tags, and start to work on existing.
 
 ### Pull-requests
 

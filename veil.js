@@ -24,22 +24,25 @@ class Veil {
     Object.getOwnPropertyNames(this.#targetProto).forEach(
       methodName => {
         if (typeof this.#target[methodName] === 'function' && methodName !== 'constructor') {
-          this[methodName] = this.#useTargetMethod(methodName);
+          this.#useTargetMethod(methodName);
         }
       }
     );
     
   };
   
+  /**
+   * If a target method satisfies - use it as a native Veil object method (caching).
+   */
   #useTargetMethod(methodName) {
     this.#ignoreSettersAndGetter(methodName);
-    return (...args) => {
-      return this.#acceptPresetMethodOrPierce(methodName, args);;
+    this[methodName] = (...args) => {
+      return this.#acceptPresetMethodOrPierce(methodName, args);
     };
   };
   
   /**
-   * Forbid setters and getters in the target object
+   * Forbid setters and getters in the target object.
    */
   #ignoreSettersAndGetter(methodName) {
     var methodDescriptor = Object.getOwnPropertyDescriptor(this.#targetProto, methodName);
@@ -48,6 +51,10 @@ class Veil {
     return;
   };
   
+  /**
+   * Depending on a #pierced flag:
+   * Either use the target presets data (not pierced) or invoke a target method (pierced).
+   */
   #acceptPresetMethodOrPierce(methodName, ...args) {
     if (!this.#pierced && this.#presets.has(methodName)) {
       return this.#presets.get(methodName);
@@ -58,11 +65,17 @@ class Veil {
     return this.#applyTargetMethod(methodName, args)
   };
   
+  /**
+   * Apply target method if the veil is pierced. 
+   */
   #applyTargetMethod(methodName, ...args) {
     var targetMethod = this.#target[methodName];
     return targetMethod.apply(this.#target, args);
   };
 
+  /**
+   * Pierce the veil (drop a cache) to use a target method.
+   */
   #pierce() {
     this.#pierced = true;
   };

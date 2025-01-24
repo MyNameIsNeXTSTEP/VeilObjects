@@ -19,7 +19,7 @@ class Project {
 };
 
 const veiledProject = new Veil(
-  new Project(1),
+  new Project('id'),
   { name: 'project-1', author: 'Alex' },
 );
 

@@ -7,7 +7,7 @@
   "devDependencies": {
     "typescript": "^5.7.3"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The JS/TS implementation of Veil objects approach from EO oriented programming",
   "main": "veil.js",
   "scripts": {

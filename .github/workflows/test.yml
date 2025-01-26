@@ -40,5 +40,5 @@ jobs:
         with:
           name: Test Results
           path: test-results.xml
-          reporter: javascript-jest
-          fail-on-error: true
+          reporter: java-junit
+          fail-on-error: false

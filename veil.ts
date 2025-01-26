@@ -12,13 +12,13 @@ class Veil<T,> {
 
   constructor(
     target: T,
-    presets: Record<string, string | number>,
+    presets: Record<string, string | number | object >,
   ) {
     this.target = target;
     this.presets = new Map(Object.entries(presets) as [keyof T, any][]);
     this.pierced = false;
     /**
-     * Accept the target object methods only (no)
+     * Use target object methods as native.
      */
     this.targetProto = Object.getPrototypeOf(this.target);
     Object.getOwnPropertyNames(this.targetProto).forEach(
@@ -34,20 +34,9 @@ class Veil<T,> {
    * If a target method satisfies - use it as a native Veil object method (caching).
    */
   private useTargetMethod(methodName: string) {
-    this.ignoreSettersAndGetter(methodName);
     this[methodName] = (...args) => {
       return this.acceptPresetMethodOrPierce(methodName, args);
     };
-  };
-  
-  /**
-   * Forbid setters and getters in the target object.
-   */
-  private ignoreSettersAndGetter(methodName: string) {
-    var methodDescriptor = Object.getOwnPropertyDescriptor(this.targetProto, methodName);
-    if (!methodDescriptor) return;
-    if (methodDescriptor.get || methodDescriptor.set)
-      throw new Error(`Method "${methodName}" is either setter or getter, which is forbidden.`);
   };
   
   /**

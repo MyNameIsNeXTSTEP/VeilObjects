@@ -34,20 +34,9 @@ class Veil {
    * If a target method satisfies - use it as a native Veil object method (caching).
    */
   #useTargetMethod(methodName) {
-    this.#ignoreSettersAndGetter(methodName);
     this[methodName] = (...args) => {
       return this.#acceptPresetMethodOrPierce(methodName, args);
     };
-  };
-  
-  /**
-   * Forbid setters and getters in the target object.
-   */
-  #ignoreSettersAndGetter(methodName) {
-    var methodDescriptor = Object.getOwnPropertyDescriptor(this.#targetProto, methodName);
-    if (methodDescriptor.get || methodDescriptor.set)
-      throw new Error(`Method "${methodName}" is either setter or getter, which is forbidden.`);
-    return;
   };
   
   /**

@@ -11,7 +11,7 @@
   "description": "The JS/TS implementation of Veil objects approach from EO oriented programming",
   "main": "veil.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node tests/test-runner.js"
   },
   "repository": {
     "type": "git",

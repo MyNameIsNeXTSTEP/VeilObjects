@@ -1,17 +1,13 @@
 import Veil from '../../src/veil.js';
 import Project from '../mocks/simpleTargetClass.js';
+import assert from 'assert';
 
-var eq = (comparing, comporator, info) => {
-  if (comparing !== comporator) throw new Error(`Assertion failed: ${info}`);
-}
-
-tests({
-  'test addition': function () {
-    eq(2 + 2, 4, 'Basic addition works');
-  },
-  'test subtraction': function () {
-    eq(4 - 2, 3, 'Basic subtraction doesnt work');
-  }
+describe('Array', function () {
+  describe('#indexOf()', function () {
+    it('should return -1 when the value is not present', function () {
+      assert.equal([1, 2, 3].indexOf(4), -1);
+    });
+  });
 });
 
 var mockPresetsData = {

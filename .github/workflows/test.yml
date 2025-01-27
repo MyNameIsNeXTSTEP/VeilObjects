@@ -21,25 +21,21 @@ jobs:
         run: npm ci
         
       - name: Run Tests
-        id: test_run
         run: npm test
-        shell: bash
-        
+        continue-on-error: true
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: test-results.xml
-          
-      - name: Process Test Results
+          path: test-results.json
+        
+      - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: Test Results
-          path: test-results.xml
-          reporter: java-junit
-          fail-on-error: false
-          only-summary: 'false'
-          list-suites: 'all'
-          list-tests: 'all'
+          name: Tests results
+          path: test-results.json
+          reporter: mocha-json
+          fail-on-error: true

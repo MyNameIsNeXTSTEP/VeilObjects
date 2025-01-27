@@ -5,13 +5,14 @@
   "homepage": "https://github.com/MyNameIsNeXTSTEP/VeilObjects#readme",
   "type": "module",
   "devDependencies": {
+    "mocha": "^11.1.0",
     "typescript": "^5.7.3"
   },
   "version": "1.0.4",
   "description": "The JS/TS implementation of Veil objects approach from EO oriented programming",
   "main": "veil.js",
   "scripts": {
-    "test": "node tests/test-runner.js"
+    "test": "./node_modules/mocha/bin/mocha.js tests/test-runner.js --reporter json --reporter-option output=test-results.json"
   },
   "repository": {
     "type": "git",

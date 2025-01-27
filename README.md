@@ -1,3 +1,5 @@
+![Tests](https://github.com/MyNameIsNeXTSTEP/VeilObjects/actions/workflows/test.yml/badge.svg?branch=tests-workflow)
+
 # VeilObjects
 The JS/TS implementation of Veil objects approach from EO oriented programming
 

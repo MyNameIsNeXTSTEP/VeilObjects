@@ -40,3 +40,6 @@ jobs:
           path: test-results.xml
           reporter: java-junit
           fail-on-error: false
+          only-summary: 'false'
+          list-suites: 'all'
+          list-tests: 'all'

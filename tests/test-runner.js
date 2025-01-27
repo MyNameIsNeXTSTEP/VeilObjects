@@ -35,7 +35,8 @@ function generateJUnitReport(results) {
       if (result.passed) {
         return `<testcase classname="js-test" name="${name}"/>`;
       } else {
-        return `<testcase classname="js-test" name="${name}">
+        return `
+          <testcase classname="js-test" name="${name}">
             <failure message="${result.message}"/>
         </testcase>`;
       }

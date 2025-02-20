@@ -67,6 +67,12 @@ class Veil {
   #pierce() {
     this.#pierced = true;
   };
+
+  isTargetInstanceOf(obj) {
+    return typeof obj === 'function'
+      ? this.#target instanceof obj
+      : Object.getPrototypeOf(obj) === this.#targetProto
+  };
 };
 
 export default Veil;

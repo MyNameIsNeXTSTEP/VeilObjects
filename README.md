@@ -96,5 +96,3 @@ const veiledProject = new Veil(
 ## Tests
 
 [Test cases](https://github.com/MyNameIsNeXTSTEP/VeilObjects/blob/master/tests/test-cases/1.test.js), [Test results](https://github.com/MyNameIsNeXTSTEP/VeilObjects/actions/runs/13432912808/job/37528601103)
-
-![alt text](latest-tests-action-image.png)
